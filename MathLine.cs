@@ -6,6 +6,12 @@ namespace GeoLib
         public double A { get; private set; }
         public double B { get; private set; }
 
+        public MathLine()
+        {
+            A = 0;
+            B = 0;
+        }
+
         public MathLine(MathLine line)
         {
             A = line.A;
@@ -42,15 +48,7 @@ namespace GeoLib
 
         public double GetAcuteAngle()
         {
-            double tanValue = Math.Atan(A);
-
-            while (tanValue > Math.PI / 2)
-                tanValue -= Math.PI / 2;
-
-            while (tanValue < 0)
-                tanValue += Math.PI / 2;
-
-            return tanValue;
+            return Math.Atan(A);
         }
 
         public MathLine GetPerpendicular(Vector2 point)
@@ -79,19 +77,13 @@ namespace GeoLib
             return new Vector2(x, y);
         }
 
-        def getDistanceFromPoint(*params)
-            if params.length == 1
-                getDistanceFromPointWithVector(params[0])
-            elsif params.length == 2
-                getDistanceFromPointWithVector(Vector2.new(params[0], params[1]))
-            end
-        end
+        public double GetDistanceFromPoint(Vector2 point)
+        {
+            double a = A;
+            int b = -1;
+            double c = B;
 
-        public GetDistanceFromPoint(Vector2 point)
-            a = A
-            b = -1
-            c = B
-            return (a + b + c).abs / Math.sqrt(a.to_f** 2 + b.to_f** 2)
+            return Math.Abs(a + b + c) / Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
         }
     }
 }
