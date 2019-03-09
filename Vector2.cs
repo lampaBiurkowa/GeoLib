@@ -2,7 +2,7 @@
 
 namespace GeoLib
 {
-    public class Vector2
+    class Vector2
     {
         const double INFINITY = Double.MaxValue;
 
