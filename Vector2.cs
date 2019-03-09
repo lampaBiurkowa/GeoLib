@@ -9,6 +9,12 @@ namespace GeoLib
         public double X { get; private set; }
         public double Y { get; private set; }
 
+        public Vector2()
+        {
+            X = 0;
+            Y = 0;
+        }
+
         public Vector2(Vector2 coors)
         {
             X = coors.X;
