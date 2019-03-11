@@ -14,17 +14,17 @@ namespace GeoLib
 
         public CircStruct(double x, double y, double radius)
         {
-            create(new Vector2(X, Y), radius);
+            create(new Vector2(x, y), radius);
         }
 
         void create(Vector2 position, double radius)
         {
-            X = position.X;
-            Y = position.Y;
+            x = position.X;
+            y = position.Y;
             Position = position;
 
             r = radius;
-            Size = new Vector2(r, r);
+            Size = new Vector2(r * 2, r * 2);
         }
 
         public override bool ContainsPoint(Vector2 point)
@@ -46,7 +46,7 @@ namespace GeoLib
 
         public override bool ContainsLine(MathLine line)
         {
-            double distance = line.GetDistanceFromPoint(X + r, Y + r);
+            double distance = line.GetDistanceFromPoint(x + r, y + r);
 
             if (distance <= r)
                 return true;
@@ -70,10 +70,10 @@ namespace GeoLib
             vertexes.Add(new Vector2(rect.Position.X, rect.Position.Y + rect.Size.Y));
             vertexes.Add(new Vector2(rect.Position.X + rect.Size.X, rect.Position.Y + rect.Size.Y));
 
-            Vector2 originPosition = new Vector2(Position.X + r, Position.Y + r);
+            Vector2 originPosition = new Vector2(x + r, y + r);
 
-            RectStruct boxX = new RectStruct(rect.Position.X - r, rect.Position.Y, rect.Size.X + r * 2, rect.Size.Y);
-            RectStruct boxY = new RectStruct(rect.Position.X, rect.Position.Y - r, rect.Size.X, rect.Size.Y + r * 2);
+            RectStruct boxX = new RectStruct(rect.Position.X - r, rect.Position.Y, rect.Size.X + Size.X, rect.Size.Y);
+            RectStruct boxY = new RectStruct(rect.Position.X, rect.Position.Y - r, rect.Size.X, rect.Size.Y + Size.Y);
 
             if (boxX.ContainsPoint(originPosition) || boxY.ContainsPoint(originPosition))
                 return true;
