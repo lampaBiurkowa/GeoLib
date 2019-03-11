@@ -1,7 +1,7 @@
 ﻿using System;
 namespace GeoLib
 {
-    public class MathLine
+    class MathLine
     {
         public double A { get; private set; }
         public double B { get; private set; }
@@ -84,6 +84,11 @@ namespace GeoLib
             double c = B;
 
             return Math.Abs(a + b + c) / Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
+        }
+
+        public double GetDistanceFromPoint(double x, double y)
+        {
+            return GetDistanceFromPoint(new Vector2(x, y));
         }
     }
 }
