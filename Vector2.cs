@@ -32,14 +32,29 @@ namespace GeoLib
             return new Vector2(vec1.X + vec2.X, vec1.Y + vec2.Y);
         }
 
+        public static Vector2 operator +(Vector2 vec1, double value)
+        {
+            return new Vector2(vec1.X + value, vec1.Y + value);
+        }
+
         public static Vector2 operator -(Vector2 vec1, Vector2 vec2)
         {
             return new Vector2(vec1.X - vec2.X, vec1.Y - vec2.Y);
         }
 
+        public static Vector2 operator -(Vector2 vec1, double value)
+        {
+            return new Vector2(vec1.X - value, vec1.Y - value);
+        }
+
         public static Vector2 operator *(Vector2 vec1, Vector2 vec2)
         {
             return new Vector2(vec1.X * vec2.X, vec1.Y * vec2.Y);
+        }
+
+        public static Vector2 operator *(Vector2 vec1, double value)
+        {
+            return new Vector2(vec1.X * value, vec1.Y * value);
         }
 
         public static Vector2 operator /(Vector2 vec1, Vector2 vec2)
@@ -64,6 +79,14 @@ namespace GeoLib
                 axis = -INFINITY;
 
             return axis;
+        }
+
+        public static Vector2 operator /(Vector2 vec1, double value)
+        {
+            double xAxis = getDividedAxis(vec1.X, value);
+            double yAxis = getDividedAxis(vec1.Y, value);
+
+            return new Vector2(xAxis, yAxis);;
         }
 
         public double GetLength()
