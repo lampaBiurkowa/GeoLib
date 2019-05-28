@@ -1,7 +1,7 @@
 ﻿using System;
 namespace GeoLib
 {
-    class MathLine
+    public class MathLine
     {
         public double A { get; private set; }
         public double B { get; private set; }

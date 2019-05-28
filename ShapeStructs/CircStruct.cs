@@ -2,7 +2,7 @@
 
 namespace GeoLib
 {
-    class CircStruct : ShapeStruct
+    public class CircStruct : ShapeStruct
     {
         public Vector2 Size;
         double r;

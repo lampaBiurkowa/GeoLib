@@ -2,7 +2,7 @@
 
 namespace GeoLib
 {
-    class RectStruct : ShapeStruct
+    public class RectStruct : ShapeStruct
     {
         public Vector2 Size;
 

@@ -2,7 +2,7 @@
 
 namespace GeoLib
 {
-    static class GameMath
+    public static class GameMath
     {
         public static double GetDistance(Vector2 pointA, Vector2 pointB)
         {

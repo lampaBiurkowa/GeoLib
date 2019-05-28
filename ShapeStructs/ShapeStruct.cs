@@ -2,7 +2,7 @@
 
 namespace GeoLib
 {
-    abstract class ShapeStruct
+    public abstract class ShapeStruct
     {
         protected double x;
         protected double y;

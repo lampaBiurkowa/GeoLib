@@ -2,7 +2,7 @@
 
 namespace GeoLib
 {
-    class Vector2
+    public class Vector2
     {
         const double INFINITY = Double.MaxValue;
 
@@ -64,6 +64,11 @@ namespace GeoLib
                 axis = -INFINITY;
 
             return axis;
+        }
+
+        public double GetLength()
+        {
+            return Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
         }
     }
 }
