@@ -5,11 +5,29 @@ namespace GeoLib
 {
     public static class GameMath
     {
+        public static double GetAngleBetweenPointsLineAndHorizontalLine(Vector2 point1, Vector2 point2)
+        {
+            Vector2 body1Origin = new Vector2(point1.X, point1.Y);
+            Vector2 body2Origin = new Vector2(point2.X, point2.Y);
+            MathLine originsLine = new MathLine(body1Origin, body2Origin);
+
+            return originsLine.GetAcuteAngle();
+        }
+
         public static double GetDistance(Vector2 pointA, Vector2 pointB)
         {
             double xDistance = pointA.X - pointB.X;
             double yDistance = pointB.Y - pointA.Y;
+
             return Math.Sqrt(Math.Pow(xDistance, 2) + Math.Pow(yDistance, 2));
+        }
+
+        public static double GetPercentage(double valueToGetPercentageFrom, double secondValue)
+        {
+            if (secondValue == 0)
+                return 0;
+
+            return (valueToGetPercentageFrom / (valueToGetPercentageFrom + secondValue)) * 100;
         }
 
         public static T Min<T>(List<T> values) where T : IComparable<T>

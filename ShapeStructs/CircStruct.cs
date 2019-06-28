@@ -4,8 +4,6 @@ namespace GeoLib
 {
     public class CircStruct : ShapeStruct
     {
-        public Vector2 Size;
-
         public CircStruct(Vector2 position, double radius)
         {
             create(position, radius);

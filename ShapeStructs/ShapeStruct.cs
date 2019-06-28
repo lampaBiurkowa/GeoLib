@@ -4,9 +4,8 @@ namespace GeoLib
 {
     public abstract class ShapeStruct
     {
-        protected double x;
-        protected double y;
         public Vector2 Position;
+        public Vector2 Size;
 
         public abstract bool ContainsPoint(Vector2 point);
         public abstract bool ContainsPoint(double x, double y);

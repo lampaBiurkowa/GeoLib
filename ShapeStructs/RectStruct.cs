@@ -4,8 +4,6 @@ namespace GeoLib
 {
     public class RectStruct : ShapeStruct
     {
-        public Vector2 Size;
-
         public RectStruct(Vector2 position, Vector2 size)
         {
             create(position, size);
@@ -82,7 +80,7 @@ namespace GeoLib
 
         public override bool ContainsCirc(CircStruct circ)
         {
-            RectStruct boxX = new RectStruct(Position.X - circ.Size.X / 2, y, Size.X + circ.Size.X, Size.Y);
+            RectStruct boxX = new RectStruct(Position.X - circ.Size.X / 2, Position.Y, Size.X + circ.Size.X, Size.Y);
             RectStruct boxY = new RectStruct(Position.X, Position.Y - circ.Size.Y / 2, Size.X, Size.Y + circ.Size.X);
             Vector2 circOriginPosition = new Vector2(circ.Position.X + circ.Size.X / 2, circ.Position.Y + circ.Size.Y / 2);
 
