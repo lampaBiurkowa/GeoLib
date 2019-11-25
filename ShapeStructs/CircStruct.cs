@@ -39,7 +39,7 @@ namespace GeoLib
 
         public override bool ContainsLine(MathLine line)
         {
-            double distance = line.GetDistanceFromPoint(Position.X + Size.X / 2, Position.Y + Size.X / 2);
+            double distance = line.GetDistanceFromPoint(Position.X, Position.Y);
 
             if (distance <= Size.X / 2)
                 return true;
@@ -50,6 +50,16 @@ namespace GeoLib
         public override bool ContainsCirc(CircStruct circ)
         {
             if (GameMath.GetDistance(Position, circ.Position) <= Size.X / 2 + circ.Size.X / 2)
+                return true;
+
+            return false;
+        }
+
+        public bool ContainsFullCirc(CircStruct circ)
+        {
+            double biggerRadius = Size.X / 2 > circ.Size.X / 2 ? Size.X / 2 : circ.Size.X / 2;
+
+            if (GameMath.GetDistance(Position, circ.Position) <= biggerRadius)
                 return true;
 
             return false;
