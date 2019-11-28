@@ -12,5 +12,10 @@ namespace GeoLib
         public abstract bool ContainsRect(RectStruct rect);
         public abstract bool ContainsCirc(CircStruct circ);
         public abstract bool ContainsLine(MathLine line);
+
+        public Vector2 GetOrigin()
+        {
+            return new Vector2(Position.X + Size.X / 2, Position.Y + Size.Y / 2);
+        }
     }
 }
